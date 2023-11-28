@@ -30,7 +30,7 @@
     }
     
     #slist {
-        margin-left: 40vw;
+        padding-left:40vw;
     }
 
     button {
@@ -83,7 +83,15 @@
     async function fetchdata(type) {
         try {
             const hostname = location.hostname;
-            const sitelist = await fetch(`https://w5vxj5-3000.csb.app/data/${type}`);
+            console.log(hostname);
+            let fetchto;
+            if (hostname == "localhost") {
+                fetchto = `http://localhost:3000/data/${type}`;
+            } else {
+                fetchto = `https://${hostname}/data/${type}`;
+            }
+            console.log(fetchto)
+            const sitelist = await fetch(fetchto);
             const data = await sitelist.json();
             return data;
         } catch (error) {
@@ -93,9 +101,9 @@
     }
 
     async function showlist(type) {
-        const data = await fetchdata(type);
         const slist = document.getElementById("slist");
         slist.innerHTML = "";
+        const data = await fetchdata(type);
         for (let i = 0; i < data.site.length; i++) {
             const s = data.site[i];
             const li = document.createElement("li");
