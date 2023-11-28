@@ -1,46 +1,5 @@
-<html lang="ja">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>list</title>
-<link rel="stylesheet">
-<style>
-    body {
-        background-color: #ffffff;
-        color: black;
-    }
-    a {
-        color: black;
-    }
-    .mode {
-        display: flex;
-        list-style: none;
-    }
-    button {
-        border: none;
-        background: rgb(255, 255, 255);
-        color: rgb(29, 29, 29);
-        width: 120px;
-        height: 50px;
-        font-size: 20px;
-        border-radius: 5px;
-        margin-right: 20px;
-        cursor: pointer;
-        
-    }
-</style>
-<body>
-    <h1>Prox List</h1>
-    <ul class="mode">
-        <li><button type="button">all</button></li>
-        <li><button type="button">verified</button></li>
-        <li><button type="button">unconfirmed</button></li>
-    </ul>
-    <ul id="slist">
-
-    </ul>
-</body>
-<script>
-    const sitelist = [
+{
+    "site": [
         "https://tohyotalk.habataku.workers.dev/",
         "http://fileseek.jp/proxy.cgi",
         "https://aubruh.tech/",
@@ -150,16 +109,4 @@
         "https://incog.dev/",
         "https://dokkano2.dokkano.repl.co/"
     ]
-    const slist = document.getElementById("slist");
-    sitelist.forEach(function (s) {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.setAttribute("href", s);
-        a.textContent = s;
-        li.appendChild(a);
-        slist.appendChild(li);
-    })
-
-</script>
-
-</html>
+}
