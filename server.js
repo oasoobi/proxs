@@ -7,6 +7,10 @@ app.get("/", (req, res) => {
     res.sendFile(filepath);
 })
 
+app.get("/checked", (req, res) => {
+    const filepath = path.join(__dirname, "static", "checked.html");
+    res.sendFile(filepath);
+})
 app.listen(3000, () => {
     console.log("serverが起動した")
 })
