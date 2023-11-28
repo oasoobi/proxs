@@ -7,8 +7,18 @@ app.get("/", (req, res) => {
     res.sendFile(filepath);
 })
 
-app.get("/checked", (req, res) => {
-    const filepath = path.join(__dirname, "static", "checked.html");
+app.get("/data/all", (req, res) => {
+    const filepath = path.join(__dirname, "static", "data/all.json");
+    res.sendFile(filepath);
+})
+
+app.get("/data/checked", (req, res) => {
+    const filepath = path.join(__dirname, "static", "data/checked.json");
+    res.sendFile(filepath);
+})
+
+app.get("/data/unchecked", (req, res) => {
+    const filepath = path.join(__dirname, "static", "data/unchecked.json");
     res.sendFile(filepath);
 })
 app.listen(3000, () => {
