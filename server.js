@@ -22,5 +22,5 @@ app.get("/data/unchecked", (req, res) => {
     res.sendFile(filepath);
 })
 app.listen(3000, () => {
-    console.log("serverが起動した")
+    console.log("serverが起動した");
 })
