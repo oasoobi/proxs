@@ -15,15 +15,17 @@ app.get("/data/all", (req, res) => {
 app.get("/none", (req, res) => {
   res.redirect("/");
 });
-app.get("/data/checked", (req, res) => {
-  const filepath = path.join(__dirname, "static", "data/checked.json");
+
+app.get("/data/verifyed", (req, res) => {
+  const filepath = path.join(__dirname, "static", "data/verifyed.json");
   res.sendFile(filepath);
 });
 
-app.get("/data/unchecked", (req, res) => {
-  const filepath = path.join(__dirname, "static", "data/unchecked.json");
+app.get("/data/unverifyed", (req, res) => {
+  const filepath = path.join(__dirname, "static", "data/unverifyed.json");
   res.sendFile(filepath);
 });
+
 app.listen(3000, () => {
   console.log("serverが起動した");
 });
