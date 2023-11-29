@@ -13,8 +13,8 @@ app.get("/data/all", (req, res) => {
 });
 
 app.get("/none", (req, res) => {
-    res.redirect("/")
-})
+  res.redirect("/");
+});
 app.get("/data/checked", (req, res) => {
   const filepath = path.join(__dirname, "static", "data/checked.json");
   res.sendFile(filepath);
