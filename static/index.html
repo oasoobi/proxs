@@ -116,8 +116,8 @@
 
     async function showlist(type) {
         const slist = document.getElementById("slist");
-        slist.innerHTML = "";
         const data = await fetchdata(type);
+        slist.innerHTML = "";
         for (let i = 0; i < data.site.length; i++) {
             const s = data.site[i];
             const li = document.createElement("li");
