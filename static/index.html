@@ -72,8 +72,8 @@
     <p id="count">site count: none</p>
     <ul id="mode">
         <li><button type="button" id="all" class="type active">all</button></li>
-        <li><button type="button" id="checked" class="type">checked</button></li>
-        <li><button type="button" id="unchecked" class="type">unchecked</button></li>
+        <li><button type="button" id="verifyed" class="type">verifyed</button></li>
+        <li><button type="button" id="unverifyed" class="type">unverifyed</button></li>
     </ul>
 
     <ul id="slist">
@@ -85,8 +85,8 @@
     let sitecount = 0;
     const type = document.querySelectorAll(".type");
     const allsite = document.getElementById("all");
-    const checkedsite = document.getElementById("checked");
-    const uncheckedsite = document.getElementById("unchecked");
+    const verifyedsite = document.getElementById("verifyed");
+    const unverifyedsite = document.getElementById("unverifyed");
 
     type.forEach(item => {
         item.addEventListener("click", activetype);
@@ -95,12 +95,12 @@
         showlist("all");
     })
 
-    checkedsite.addEventListener("click", function () {
-        showlist("checked");
+    verifyedsite.addEventListener("click", function () {
+        showlist("verifyed");
     })
 
-    uncheckedsite.addEventListener("click", function () {
-        showlist("unchecked");
+    unverifyedsite.addEventListener("click", function () {
+        showlist("unverifyed");
     })
     async function fetchdata(type) {
         try {
