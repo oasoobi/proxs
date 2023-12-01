@@ -64,16 +64,22 @@
             font-variant-numeric: tabular-nums;
             text-align: center;
         }
+
+        .site_type {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <h1>Proxy List</h1>
     <p id="count">site count: none</p>
-    <select name="type">
-        <option>proxy<option>
-        <option>youtube</option>
-    </select>
+    <div class="site_type">
+        <select name="type" title="site type" id="site_type">
+            <option value="proxy">proxy</option>
+            <option value="youtube">youtube</option>
+        </select>
+    </div>
     <ul id="mode">
         <li><button type="button" id="all" class="type active">all</button></li>
         <li><button type="button" id="verifyed" class="type">verifyed</button></li>
@@ -87,33 +93,53 @@
 
 <script>
     let sitecount = 0;
+    let GetType = "all"
     const type = document.querySelectorAll(".type");
     const allsite = document.getElementById("all");
     const verifyedsite = document.getElementById("verifyed");
     const unverifyedsite = document.getElementById("unverifyed");
+    const GetSiteType = document.getElementById("site_type");
+
+    GetSiteType.addEventListener("change", function() {
+        showlist(GetType);
+    })
 
     type.forEach(item => {
         item.addEventListener("click", activetype);
     })
+
     allsite.addEventListener("click", function () {
-        showlist("all");
+        GetType = "all";
+        showlist(GetType);
     })
 
     verifyedsite.addEventListener("click", function () {
-        showlist("verifyed");
+        GetType = "verifyed";
+        showlist(GetType);
     })
 
     unverifyedsite.addEventListener("click", function () {
-        showlist("unverifyed");
+        GetType = "unverifyed";
+        showlist(GetType);
     })
     async function fetchdata(type) {
         try {
+            const GetSiteType = document.getElementById("site_type");
+            const SiteType = GetSiteType.options[GetSiteType.selectedIndex].value;
             const hostname = location.hostname;
             let fetchto;
-            if (hostname == "localhost") {
-                fetchto = `http://localhost:3000/data/${type}`;
+            if (SiteType == "proxy") {
+                if (hostname == "localhost") {
+                    fetchto = `http://localhost:3000/data/${type}`;
+                } else {
+                    fetchto = `https://${hostname}/data/${type}`;
+                }
             } else {
-                fetchto = `https://${hostname}/data/${type}`;
+                if (hostname == "localhost") {
+                    fetchto = `http://localhost:3000/data/y/${type}`;
+                } else {
+                    fetchto = `https://${hostname}/data/y/${type}`;
+                }
             }
             console.log(fetchto)
             const sitelist = await fetch(fetchto);
@@ -152,7 +178,6 @@
         })
         this.classList.add("active");
     }
-
 
     showlist("all");
 </script>
