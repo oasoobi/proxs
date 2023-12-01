@@ -26,6 +26,25 @@ app.get("/data/unverifyed", (req, res) => {
   res.sendFile(filepath);
 });
 
+app.get("/data/y/all", (req, res) => {
+  const filepath = path.join(__dirname, "static", "data/youtube/all.json");
+  res.sendFile(filepath);
+});
+
+app.get("/data/y/verifyed", (req, res) => {
+  const filepath = path.join(__dirname, "static", "data/youtube/verifyed.json");
+  res.sendFile(filepath);
+});
+
+app.get("/data/y/unverifyed", (req, res) => {
+  const filepath = path.join(
+    __dirname,
+    "static",
+    "data/youtube/unverifyed.json",
+  );
+  res.sendFile(filepath);
+});
+
 app.listen(3000, () => {
-  console.log("serverが起動した");
+  console.log("サーバーが起動した");
 });
