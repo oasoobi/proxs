@@ -5,6 +5,7 @@ const app = express();
 app.get("/", (req, res) => {
   const filepath = path.join(__dirname, "static", "index.html");
   res.sendFile(filepath);
+  console.log(req.ip);
 });
 
 app.get("/data/all", (req, res) => {
