@@ -141,7 +141,6 @@
                     fetchto = `https://${hostname}/data/y/${type}`;
                 }
             }
-            console.log(fetchto)
             const sitelist = await fetch(fetchto);
             const data = await sitelist.json();
             return data;
