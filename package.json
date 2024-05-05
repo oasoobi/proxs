@@ -9,5 +9,9 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oasoobi/prox.git"
   }
 }
