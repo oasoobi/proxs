@@ -1,6 +1,0 @@
-{
-  "start": "node server.js",
-  "restart":{
-    
-  }
-}
